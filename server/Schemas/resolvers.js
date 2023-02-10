@@ -44,12 +44,23 @@ const resolvers={
 
         saveBook: async(parent,{input},context)=>{
             if(context.user){
-                const saveBookData= User.findOneAndUpdate({_id:context.user._id},{$addToSet:{savedBook:input}})
+                const saveBookData= await User.findOneAndUpdate({_id:context.user._id},{$addToSet:{savedBook:input}})
 
                 return saveBookData
             }
-            throw new AuthenticationError("please logg In if u want to save the book")
+            throw new AuthenticationError("please log In if u want to save the book")
         },
-        
+
+        removeBook: async(parent,args,context)=>{
+            if(context.user){
+                const removeBookData= await User.findOneAndUpdate({_id:context.user._id},{$pull:{savedBook:{bookId:args.bookId}}})
+
+                return removeBookData
+            }
+            throw new AuthenticationError("please log In if u want to remove the book")
+        }
+
     }
 }
+
+module.exports= resolvers
