@@ -40,6 +40,16 @@ const resolvers={
             const token= signToken(user);
 
             return {token, user}
-        }
+        },
+
+        saveBook: async(parent,{input},context)=>{
+            if(context.user){
+                const saveBookData= User.findOneAndUpdate({_id:context.user._id},{$addToSet:{savedBook:input}})
+
+                return saveBookData
+            }
+            throw new AuthenticationError("please logg In if u want to save the book")
+        },
+        
     }
 }
