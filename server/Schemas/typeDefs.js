@@ -1,6 +1,6 @@
 const {gql}= require('apollo-server-express');
 
-const typeDef= gql`
+const typeDefs= gql`
 type User{
     _id: ID
     username: String
@@ -43,4 +43,4 @@ type Mutation{
 }
 `
 
-module.exports = typeDef;
+module.exports = typeDefs;
