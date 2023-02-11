@@ -2,14 +2,14 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { LOGIN_USER } from '../utils/mutations';
-import { userMutation } from '@apollo/client';
+import { useMutation } from '@apollo/react-hooks';
 
 // import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [login, { error, data }] = userMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
