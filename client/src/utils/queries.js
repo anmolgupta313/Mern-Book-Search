@@ -1,7 +1,7 @@
-import { gql, useQuery } from '@apollo/client';
+import { gql } from '@apollo/client';
 
 
-const GET_ME = gql`
+export const GET_ME = gql`
 query Query {
     me {
       _id
@@ -20,4 +20,3 @@ query Query {
   }
 `
 
-module.exports = GET_ME;
