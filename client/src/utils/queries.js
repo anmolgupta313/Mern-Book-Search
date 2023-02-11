@@ -1,12 +1,13 @@
 import { gql, useQuery } from '@apollo/client';
 
 
-const GET_ME= gql`
-query Me {
+const GET_ME = gql`
+query Query {
     me {
-      username
-      email
+      _id
       bookCount
+      email
+      username
       savedBooks {
         authors
         bookId
@@ -19,4 +20,4 @@ query Me {
   }
 `
 
-module.exports= GET_ME;
+module.exports = GET_ME;
