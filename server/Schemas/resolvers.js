@@ -31,7 +31,7 @@ const resolvers={
                 throw new AuthenticationError("In valid User email")
             }
 
-            const checkPassword= await isCorrectPassword(password);
+            const checkPassword= await user.isCorrectPassword(password);
 
             if(!checkPassword){
                 throw new AuthenticationError('Please enter a correct password')

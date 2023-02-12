@@ -24,12 +24,8 @@ const LoginForm = () => {
     // check if form has everything (as per react-bootstrap docs)
 
     try {
-      const { data } = await login({
-        variables: { ...userFormData }
-      });
-      Auth.login(data.login.token)
- 
-
+      const { data } = await login({variables: {...userFormData}});
+      Auth.login(data.login.token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
