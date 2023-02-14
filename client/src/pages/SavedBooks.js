@@ -50,7 +50,7 @@ const [removeBook,{error}]= useMutation(REMOVE_BOOK)
 
     try {
       const {data} = await removeBook({variables:{bookId}});
-
+      console.log(data,'this is the deleted book')
       // upon success, remove book's id from localStorage
       removeBookId(bookId);
     } catch (err) {
@@ -77,7 +77,7 @@ const [removeBook,{error}]= useMutation(REMOVE_BOOK)
             : 'You have no saved books!'}
         </h2>
         <CardColumns>
-          {userData?.savedBooks.map((book) => {
+          {userData.savedBooks.map((book) => {
             return (
               <Card key={book.bookId} border='dark'>
                 {book.image ? <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' /> : null}
