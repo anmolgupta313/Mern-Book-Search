@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 // app.use(routes);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/public"))
+  res.sendFile(path.join(__dirname, "../client/build"))
 })
 
 db.once('open', () => {
